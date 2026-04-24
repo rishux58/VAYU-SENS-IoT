@@ -1,0 +1,160 @@
+<!doctype html>
+<html class="dark">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v1.9.5/dist/alpine.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class=" bg-white text-white dark:bg-gray-950  ">
+  <!-- navbar -->
+  <header class="mt-3">
+    <nav id="nav" class=" ml-1 rounded-3xl  bg-gray-600  flex flex-row justify-between h-15 mb-4">
+      <h1 id="logo" class=" p-2 m-1 font-extrabold text-3xl">
+
+       VAYU-Sens🌦️
+      </h1>
+      
+      
+      <div id="part2" class=" menu cursor-pointer text-2xl font-bold w-full  bg-gray-600 rounded-3xl absolute -top-full my-3 flex flex-col items-center lg:mx-10  lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:w-auto z-50">
+        
+        <div class="   main flex flex-col items-center gap-2 
+        lg:flex-row lg:gap-6 lg:justify-start ">
+        <h1 class="p-2 border-b-2 not-hover:border-b-0"><a href="homepage.html">Home</a></h1>
+        <h1 class="p-2 border-b-2 not-hover:border-b-0">Dashboard</h1>
+        <h1 class="p-2 border-b-2 not-hover:border-b-0"><a href="about.html">About</a></h1>
+      </div>
+      
+      
+  </div>
+  <div class="toggle-button mx-3 my-3 lg:hidden "><i class="fa-notdog-duo fa-solid fa-bars text-4xl"></i></div>
+</nav>
+</header>
+<!-- line dashboard -->
+<main class="dash m-2 ">
+  
+    <div class="  flex flex-row justify-center m-2 py-5 rounded-4xl">
+      
+      <div class="  mt-2  grid grid-cols-2 h-40 font-bold text-center text-blue-300 text-2xl gap-10 min-h-52">
+        <!-- temparature -->
+        <div class="bg-white/5 backdrop-blur-xl 
+  border border-white/10 
+
+
+  shadow-lg  w-48 rounded-2xl p-4 lg:w-100 not-hover:shadow-2xl/20 shadow-indigo-600 600/400">Temparature
+          <div id="temp-display" class="text-5xl mt-7">--</div>
+        </div>
+        <!-- humidity -->
+        <div class="bg-white/5 backdrop-blur-xl 
+  border border-white/10 
+
+
+  shadow-lg  w-48 rounded-2xl p-4 lg:w-100 not-hover:shadow-2xl/20 shadow-indigo-600 600/400">Humidity
+          
+          <div id="humid-display" class="text-5xl mt-7">--</div>
+        </div>
+      </div>
+    </div>
+    
+   
+ <section class="flex  justify-center items-center">
+
+
+   <div class="w-105 relative lg:w-210 group" x-data="{ activeSlide: 1 }">
+     
+     <div x-show="activeSlide === 1" x-transition.opacity.duration.500ms
+       class="p-6 h-80 flex flex-col items-center bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg text-white rounded-lg">
+       <h3 class="text-xl font-bold text-orange-500 mb-2">Live Temperature (24h)</h3>
+                <div class="relative h-60 w-full">
+                    <canvas id="tempChart"></canvas>
+                </div>
+     </div>
+   
+     <div x-show="activeSlide === 2" x-transition.opacity.duration.500ms
+       class="p-6 h-80 flex flex-col items-center bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg text-white rounded-lg">
+       <h3 class="text-xl font-bold text-blue-400 mb-2">Live Humidity (24h)</h3>
+                <div class="relative h-60 w-full">
+                    <canvas id="humidChart"></canvas>
+                </div>
+     </div>
+   
+     <button @click="activeSlide = activeSlide === 1 ? 2 : 1" 
+       class="absolute left-0 top-1/2 -translate-y-1/2 -ml-6 bg-orange-600 text-white p-3 rounded-full hover:bg-orange-500 transition-all z-20">
+       &#8592;
+     </button>
+     
+     <button @click="activeSlide = activeSlide === 2 ? 1 : 2" 
+       class="absolute right-0 top-1/2 -translate-y-1/2 -mr-6 bg-orange-600 text-white p-3 rounded-full hover:bg-orange-500 transition-all z-20">
+       &#8594;
+     </button>
+   
+     <div class="flex justify-center gap-2 mt-4">
+       <div @click="activeSlide = 1" :class="activeSlide === 1 ? 'bg-orange-600 w-8' : 'bg-gray-600 w-3'" class="h-2 rounded-full cursor-pointer transition-all"></div>
+       <div @click="activeSlide = 2" :class="activeSlide === 2 ? 'bg-orange-600 w-8' : 'bg-gray-600 w-3'" class="h-2 rounded-full cursor-pointer transition-all"></div>
+     </div>
+   </div>
+ </section> 
+
+
+
+
+
+
+
+
+<!-- statusNalert-->
+<div class=" flex flex-row justify-center  m-2 py-5 rounded-4xl">
+  <div class="  mt-2 text-blue-300 grid grid-cols-2 h-40 font-bold text-center text-2xl gap-10 min-h-52">
+    <!-- temparature -->
+    <div class="bg-white/5 backdrop-blur-xl 
+  border border-white/10 
+
+
+  shadow-lg  w-48 rounded-2xl p-4 lg:w-100 not-hover:shadow-2xl/20 shadow-indigo-600 600/400 ">Status
+      <div id="status-text" class="text-3xl mt-10">--</div>
+    </div>
+    <!-- alert -->
+    <div id="alert-box" class="cursor-pointer bg-white/5 backdrop-blur-xl 
+  border border-white/10 
+
+
+  shadow-lg  w-48 rounded-2xl p-4 lg:w-100 not-hover:shadow-2xl/20 shadow-indigo-600 600/400">Alert
+      
+      <div class="text-6xl mt-7"> ⏰  </div>
+    </div>
+  </div>
+  
+  
+  
+</div>
+<div id="limit-settings" style="display:none;" class="flex flex-col items-center justify-center lg:mx-98  lg:my-10 lg:p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-lg">
+  <h3 class="text-xl font-bold text-amber-400 mb-4">Set Alert</h3>
+  <div class="flex items-center gap-4">
+    <input type="number" id="alert-limit-input" value="45" class="w-24 p-2 rounded-xl bg-gray-800 border border-gray-600 text-center text-white focus:outline-none focus:border-amber-400">
+    <span class="text-xl font-bold">°C</span>
+    <button id="save-limit-btn" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-2 px-6 rounded-xl transition-all active:scale-95">
+      Save Limit
+    </button>
+  </div>
+</div>
+
+
+
+
+<!--<button id="clickMe" class=" border-2 m-2 p-2 cursor-pointer">click me</button> -->
+  
+  
+</main>
+
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
