@@ -8,10 +8,6 @@ Manual tracking is slow, and existing industrial solutions are too expensive for
 The objective of **VAYU-SENS** is to provide an affordable, high-performance IoT ecosystem that captures environmental data (Temperature, Humidity, Air Quality) through hardware sensors and streams it instantly to a web dashboard.  
 This allows for remote monitoring, data logging for academic DBMS requirements, and informed environmental analysis.
 
-## 🧠 Team & Approach
-- **Team Name:** VAYU  
-- **Team Lead:** [Rishu](https://github.com/rishux58)
-
 ## 🛠️ Tech Stack
 - **Frontend:** HTML5, JavaScript (ES6+), Tailwind CSS  
 - **Backend/Database:** Firebase Realtime Database  
@@ -40,41 +36,40 @@ This allows for remote monitoring, data logging for academic DBMS requirements, 
 - DHT11/22 Sensor (for Temp/Humidity)  
 - Jumper Wires & Breadboard  
 
-### Local Setup
+## Local Setup
 ``bash
-# Clone the repo
+###Clone the repo
 git clone https://github.com/rishux58/VAYU-SENS-IoT.git
 
-# Navigate to project
+### Navigate to project
 cd VAYU-SENS-IoT
 
-# Open the dashboard
-# (Open index.html in any browser or use Live Server)
+### Open the dashboard
+(Open index.html in any browser or use Live Server)
 
 
 ## 🧬 Future Scope
-- 📱 **Mobile App Integration** – Flutter/React Native app with push notifications for critical weather alerts  
-- 🤖 **AI-Powered Predictions** – Machine learning models to predict future weather trends  
-- 📍 **Multi-Node Network** – Support for multiple sensor nodes across different locations on a single map interface  
-- 📊 **Advanced Analytics** – Charts (Chart.js) to visualize data patterns over weeks or months  
+- 📱 **Mobile App Integration** – Flutter/React Native app with push notifications for critical weather alerts.  
+- 🤖 **AI-Powered Predictions** – Machine learning models to predict future weather trends.  
+- 📍 **Multi-Node Network** – Support for multiple sensor nodes across different locations on a single map interface.  
 
 ## 🏁 Final Words
 
-### 💡 Ideation Phase
+## 💡 Ideation Phase
 Started with the need to monitor local room/lab conditions for a university DBMS project.  
 Realized that basic serial monitors aren't enough for real-world impact.
 
-### 🛠️ Development Phase
+## 🛠️ Development Phase
 - Faced challenges with Git push errors (HTTP 408) and large file handling  
 - Switched to SSH and GitHub Desktop for a cleaner workflow  
 - Integrated Firebase to ensure zero-latency data updates  
 
-### ⚡ Challenges Faced
+## ⚡ Challenges Faced
 - Handling large 16.79 MiB pushes and terminal timeouts  
 - Managing `node_modules` and structure for Firebase deployment  
 - Bridging embedded hardware logic with modern web frontend  
 
-### 🎉 Outcome
+## 🎉 Outcome
 A fully functional, live-hosted IoT dashboard that serves as a solid foundation for:
 - Environmental research  
 - Smart home integration  
