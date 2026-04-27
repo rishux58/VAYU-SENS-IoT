@@ -13,7 +13,7 @@ This allows for remote monitoring, data logging for academic DBMS requirements, 
 - **Backend/Database:** Firebase Realtime Database  
 - **Hosting:** Firebase Hosting  
 - **Animations:** GSAP & Alpine.js  
-- **Hardware:** ESP32 / Arduino Uno (Embedded C++)  
+- **Hardware:** ESP8266 / DHT11 (Embedded C++)  
 
 **APIs & Tools Used:**
 - Firebase SDK – For real-time data synchronization  
@@ -27,12 +27,12 @@ This allows for remote monitoring, data logging for academic DBMS requirements, 
 - ✅ Historical Data Tracking – Monitor trends over time for better environmental insights  
 
 ## 📽️ Demo & Deliverables
-- **Live Dashboard:** [iot-temp-monitor-8697a.web.app](https://iot-temp-monitor-8697a.web.app)  
+- **Live Dashboard:** [iot-temp-monitor-8697a.web.app](https://iot-temp-monitor-8697a.web.app/homepage.html)  
 - **GitHub Repository:** [VAYU-SENS-IoT](https://github.com/rishux58/VAYU-SENS-IoT)
 
 ## 🧪 How to Run the Project
 ### Hardware Requirements
-- ESP32 or Arduino Uno  
+- ESP8266  
 - DHT11/22 Sensor (for Temp/Humidity)  
 - Jumper Wires & Breadboard  
 
@@ -59,13 +59,10 @@ cd VAYU-SENS-IoT
 Started with the need to monitor local room/lab conditions for a university DBMS project.  
 Realized that basic serial monitors aren't enough for real-world impact.
 
-## 🛠️ Development Phase
-- Faced challenges with Git push errors (HTTP 408) and large file handling  
-- Switched to SSH and GitHub Desktop for a cleaner workflow  
+## 🛠️ Development Phase  
 - Integrated Firebase to ensure zero-latency data updates  
 
-## ⚡ Challenges Faced
-- Handling large 16.79 MiB pushes and terminal timeouts  
+## ⚡ Challenges Faced 
 - Managing `node_modules` and structure for Firebase deployment  
 - Bridging embedded hardware logic with modern web frontend  
 
